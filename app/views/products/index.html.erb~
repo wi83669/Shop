@@ -1,0 +1,19 @@
+<% title "Products" %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Image Url</th>
+  </tr>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= image_tag "/images/products/#{product.image_url}" %></td>
+		  <td><span class="product_title"><%= product.title %></span><%= product.description %></td>
+		  <td><%= product.price %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "Create a New Product", new_product_path %></p>
