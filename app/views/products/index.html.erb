@@ -9,10 +9,11 @@
   </tr>
   <% @products.each do |product| %>
     <tr>
-      <td><%= image_tag "/images/products/#{product.image_url}" %></td>
+      <td><%= image_tag "products/#{product.image_url}" %></td>
 		  <td><span class="product_title"><%= product.title %></span><%= product.description %></td>
-		  <td><%= product.price %></td>
+		  <td><%= print_price(product.price) %></td>
 			<td><%= product.image_url %></td>
+			<td><%= link_to "Show", product_path(product) %></td>
     </tr>
   <% end %>
 </table>
