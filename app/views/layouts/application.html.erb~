@@ -12,10 +12,15 @@
   <body>
 		<div class="wrapper">
 			<div class="header">
-			  <h1>FoodWorks</h1>
+			  <h1>All products</h1>
 			  <p>Your Online Grocery</p>
 			</div>
 
+			<%= link_to "Products","products#index" %>
+			<%= link_to "Orders","orders#index" %>
+			
+			
+				
 			<p style="color: green"><%= flash[:notice] %></p>
 
 			<div class="sidebar">

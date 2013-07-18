@@ -1,0 +1,8 @@
+module OrderItemsHelper
+	def print_subtotal(amount,cash)
+		cash*amount
+	end
+
+
+
+end
