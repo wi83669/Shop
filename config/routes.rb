@@ -1,11 +1,13 @@
 Stock::Application.routes.draw do
-	root to: 'products'
+	root to: 'products#index'
 
   resources :orders
 
   resources :order_items
 
   resources :products
+
+	match '/auth/:provider/callback', to: 'sessions#create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -14,7 +14,7 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_order_item_path(@order_item) unless @order_item.nil? %> |
-  <%= link_to "Destroy", @order_item, :confirm => 'Are you sure?', :method => :delete unless @order_item.nil? %> |
+  <%= link_to "Edit", edit_order_item_path(@order_item) %> |
+  <%= link_to "Destroy", @order_item, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", order_items_path %>
 </p>

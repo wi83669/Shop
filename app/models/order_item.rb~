@@ -7,7 +7,7 @@ class OrderItem < ActiveRecord::Base
 	validates :order_id, presence: true
 
 	def subtotal
-		@this.product * quantity			
+		product.price * quantity			
 	end
 
 end

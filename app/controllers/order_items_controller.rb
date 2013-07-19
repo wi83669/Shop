@@ -10,7 +10,8 @@ class OrderItemsController < ApplicationController
 	end
 
   def create
-		@order_item = @order.order_items.new(quantity: 1, product_id: params[:product_id])
+		@order_item = @order.order_items.find_or_initialize_by_product_id(product_id: params[:product_id])
+		@order_item.quantity += 1
 		if @order_item.save
 		  redirect_to @order, notice: "Successfully created order item."
 		else
@@ -24,8 +25,11 @@ class OrderItemsController < ApplicationController
 
   def update
     @order_item = OrderItem.find(params[:id])
-    if @order_item.update_attributes(params[:order_item])
-      redirect_to @order_item, :notice  => "Successfully updated order item."
+		if params[:order_item][:quantity] == '0'
+			@order_item.destroy
+			redirect_to orders_path, :notice => "Successfully destroyed order item."
+    elsif @order_item.update_attributes(params[:order_item])
+      redirect_to orders_path, :notice  => "Successfully updated order item."
     else
       render :action => 'edit'
     end
@@ -34,6 +38,6 @@ class OrderItemsController < ApplicationController
   def destroy
     @order_item = OrderItem.find(params[:id])
     @order_item.destroy
-    redirect_to order_items_url, :notice => "Successfully destroyed order item."
+    redirect_to orders_path, :notice => "Successfully destroyed order item."
   end
 end

@@ -1,6 +1,14 @@
 <%= form_for @order_item do |f| %>
   <%= f.error_messages %>
   <p>
+    <%= f.label :product_id %><br />
+    <%= @product.id %>
+  </p>
+  <p>
+    <%= f.label :order_id %><br />
+    <%= @order.id %>
+  </p>
+  <p>
     <%= f.label :quantity %><br />
     <%= f.number_field :quantity %>
   </p>

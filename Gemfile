@@ -22,6 +22,8 @@ end
 
 gem 'jquery-rails'
 
+gem "omniauth-twitter"
+
 
 gem 'nifty-generators'
 # To use ActiveModel has_secure_password

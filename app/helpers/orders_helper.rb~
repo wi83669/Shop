@@ -1,6 +1,5 @@
 module OrdersHelper
-	def print_subtotal(amount,cash)
-		cash*amount
+	def twoNumbersAfterDot(number)
+		number.round(2)
 	end
-
 end
