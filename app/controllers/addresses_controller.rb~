@@ -1,6 +1,4 @@
 class AddressesController < ApplicationController
-	before_filter :load_order
-
   def index
     @addresses = Address.all
   end

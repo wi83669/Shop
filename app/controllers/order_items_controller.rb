@@ -1,14 +1,6 @@
 class OrderItemsController < ApplicationController
 	before_filter :load_order, only: [:create]
 
-	def load_order
-		@order = Order.find_or_initialize_by_id(session[:order_id], status: "unsubmitted")
-		if @order.new_record?
-		  @order.save!
-		  session[:order_id] = @order.id
-		end
-	end
-
   def create
 		@order_item = @order.order_items.find_or_initialize_by_product_id(product_id: params[:product_id])
 		@order_item.quantity += 1

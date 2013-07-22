@@ -8,7 +8,7 @@ class OrderItem < ActiveRecord::Base
 	validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
 	def subtotal
-		product.price * quantity			
+		product.price.to_f * quantity.to_f		
 	end
 
 end

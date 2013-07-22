@@ -1,0 +1,13 @@
+require 'spec_helper'
+
+describe OrderItem do
+  before do
+    @order_item = OrderItems.new(product_id:1 , order_id:1, quantity: 5)
+  end
+
+	let(:order_item) { FactoryGirl.create(:order_item) }
+	#:title, :price, :description, :image_url, :stock
+	let!(:product) { FactoryGirl.create(:product, title: "pomidor", price: 50.00, description: "dobry produkt", image_url: "oranges.jpg", stock: 5) }	
+	#:user, :status
+
+end

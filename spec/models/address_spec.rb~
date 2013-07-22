@@ -1,0 +1,12 @@
+require 'spec_helper'
+
+describe Address do
+  before do
+    @address = Address.new()
+  end
+
+	let(:user) { FactoryGirl.create(:user) }
+	let!(:m1) { FactoryGirl.create(:micropost, user: user, content: "Foo") }
+	let!(:m2) { FactoryGirl.create(:micropost, user: user, content: "Bar") }
+
+end

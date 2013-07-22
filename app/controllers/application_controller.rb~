@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 			@order = Order.find(session[:order_id])
 		rescue ActiveRecord::RecordNotFound
 			if current_user
-				@order = current_user.orders.create(status: "unsubmitted")
+				@order = current_user.orders.find_or_create_by_status(status: "unsubmitted")
 			else
 				@order = Order.create(status: "unsubmitted")
 			end

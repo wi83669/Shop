@@ -25,7 +25,7 @@ class OrderItemsController < ApplicationController
 
   def update
     @order_item = OrderItem.find(params[:id])
-		if params[:order_item][:quantity].to_i == 0
+		if params[:order_item][:quantity] == '0'
 			@order_item.destroy
 			redirect_to orders_path, :notice => "Successfully destroyed order item."
     elsif @order_item.update_attributes(params[:order_item])

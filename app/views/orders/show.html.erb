@@ -33,6 +33,17 @@
 		</tr>	
 	<% end %>
 	<tr>
+		<th>Shipping to:</th>
+		<td>
+			<%= form_for @order do |f| %>
+				<%= f.select :address_id, current_user.addresses.collect{|a| [a.to_s, a.id]} %>
+			<% end %>
+		</td>
+	</tr>
+
+
+	</tr>
+	<tr>
 		<th>
 			TOTAL:
 		</th>
