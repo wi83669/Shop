@@ -22,8 +22,21 @@ end
 
 gem 'jquery-rails'
 
+gem "omniauth-twitter"
+
 
 gem 'nifty-generators'
+
+
+group :test do
+	gem "mocha"
+  gem 'capybara', '1.1.2'
+	gem 'rb-inotify', '0.8.8'
+  gem 'libnotify', '0.5.9'
+	gem 'factory_girl_rails', '4.1.0'
+	gem 'rspec-rails', '2.11.0'
+	gem 'guard-rspec', '1.2.1'
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -38,5 +51,3 @@ gem 'nifty-generators'
 
 # To use debugger
 # gem 'debugger'
-
-gem "mocha", :group => :test

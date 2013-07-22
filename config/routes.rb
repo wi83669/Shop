@@ -1,4 +1,6 @@
 Stock::Application.routes.draw do
+  resources :addresses
+
 	root to: 'products#index'
 
   resources :orders
