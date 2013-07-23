@@ -3,13 +3,12 @@ class ApplicationController < ActionController::Base
 	helper_method :current_user
 
 	def load_order
-		@order = Order.find_or_initialize_by_id(session[:order_id], status: "unsubmitted")
+		@order = Order.find_or_initialize_by_id(session[:order_id], status: "unsubmitted", user: current_user)
 		if @order.new_record?
 		  @order.save!
 		  session[:order_id] = @order.id
 		end
 	end
-
 
 	private
 		def current_user

@@ -32,15 +32,21 @@
 			<td><%= link_to "Remove", item, :confirm => 'Are you sure?', :method => :delete %></td>
 		</tr>	
 	<% end %>
+
 	<tr>
 		<th>Shipping to:</th>
 		<td>
-			<%= form_for @order do |f| %>
-				<%= f.select :address_id, current_user.addresses.collect{|a| [a.to_s, a.id]} %>
+			<%= form_for @order, url: purchase_order_path(@order), method: :put do |f| %>
+				<%= f.select :address_id, current_user.addresses.collect{|a| [a.to_s, a.id]} if !current_user.nil? %>
+				<%= f.submit "Submit Order" %>
+			<% end %>
+		</td>
+		<td width="100">
+			<% if current_user %>
+				<%= link_to "Add new a'DRESS", addresses_path + "/new" %>
 			<% end %>
 		</td>
 	</tr>
-
 
 	</tr>
 	<tr>

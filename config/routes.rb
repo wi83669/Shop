@@ -14,6 +14,14 @@ Stock::Application.routes.draw do
 
 	match "/login" => redirect("/auth/twitter"), as: :login
 	match "/logout" => "sessions#destroy", as: :logout
+
+	resources :orders do
+		member do
+		  put :purchase
+		end
+	end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

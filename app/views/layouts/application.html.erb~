@@ -31,7 +31,7 @@
 
 			<div>
 				<% if current_user %>
-					<%= link_to "Add new a'DRESS", @address %>
+					<%= link_to "Add new a'DRESS", addresses_path + "/new" %>
 				<% end %>
 			</div>
 

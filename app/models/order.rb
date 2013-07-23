@@ -2,8 +2,8 @@ class Order < ActiveRecord::Base
   attr_accessible :user, :status, :address
 
 	has_many :order_items, dependent: :destroy
-	belongs_to :user, foreign_key: :user_id
-	belongs_to :address, foreign_key: :address_id
+	belongs_to :user
+	belongs_to :address
 
 	def total
 		total_value = 0

@@ -5,18 +5,18 @@ class OrderItemsController < ApplicationController
 		@order_item = @order.order_items.find_or_initialize_by_product_id(product_id: params[:product_id])
 		@order_item.quantity += 1
 		if @order_item.save
-		  redirect_to @order, notice: "Successfully created order item."
+		  redirect_to current_user.orders.last, notice: "Successfully created order item."
 		else
 		  render action: 'new'
 		end
 	end
 
   def edit
-    @order_item = OrderItem.find(params[:id])
+    @order_item = @order.orderItems.find(params[:id])
   end
 
   def update
-    @order_item = OrderItem.find(params[:id])
+    @order_item = @order.orderItems.find(params[:id])
 		if params[:order_item][:quantity] == '0'
 			@order_item.destroy
 			redirect_to orders_path, :notice => "Successfully destroyed order item."
@@ -28,7 +28,7 @@ class OrderItemsController < ApplicationController
   end
 
   def destroy
-    @order_item = OrderItem.find(params[:id])
+    @order_item = @order.orderItems.find(params[:id])
     @order_item.destroy
     redirect_to orders_path, :notice => "Successfully destroyed order item."
   end
